@@ -1,0 +1,97 @@
+<%- include('header') -%>
+<%- include('navbar') -%>
+
+<div class="background">
+    <div class="upper-background"></div>
+    <div class="lower-background"></div>
+    <div class="content">
+        <div class="container">
+            <h1>Customer Record</h1>
+        </div>
+        <div class="table-container">
+            <div class="action-buttons">
+                <button onclick="location.href='/add_order.html'">Add new customer</button>
+            </div>
+            <table class="table-borderless">
+                <thead>
+                <tr>
+                    <th>Customer ID</th>
+                    <th>Name</th>
+                    <th>Flower Type</th>
+                    <th>Amount</th>
+                    <th>Price</th>
+                    <th>Edit</th>
+                    <th>Info</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>John Doe</td>
+                    <td>Dahlias</td>
+                    <td>10</td>
+                    <td>$5.00</td>
+                    <td><button class="edit-button" onclick="location.href='edit_order.html'">Edit</button></td>
+                    <td><button class="info-button" onclick="location.href='customer_info.html'">Info</button></td>
+                    <td><button class="delete-button" onclick="location.href='records.html'">Delete</button></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Jane Smith</td>
+                    <td>Roses</td>
+                    <td>15</td>
+                    <td>$7.00</td>
+                    <td><button class="edit-button" onclick="location.href='edit_order.html'">Edit</button></td>
+                    <td><button class="info-button" onclick="location.href='customer_info.html'">Info</button></td>
+                    <td><button class="delete-button" onclick="location.href='records.html'">Delete</button></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Michael Johnson</td>
+                    <td>Tulips</td>
+                    <td>8</td>
+                    <td>$4.50</td>
+                    <td><button class="edit-button" onclick="location.href='edit_order.html'">Edit</button></td>
+                    <td><button class="info-button" onclick="location.href='customer_info.html'">Info</button></td>
+                    <td><button class="delete-button" onclick="location.href='records.html'">Delete</button></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Sarah Williams</td>
+                    <td>Lilies</td>
+                    <td>12</td>
+                    <td>$6.00</td>
+                    <td><button class="edit-button" onclick="location.href='edit_order.html'">Edit</button></td>
+                    <td><button class="info-button" onclick="location.href='customer_info.html'">Info</button></td>
+                    <td><button class="delete-button" onclick="location.href='records.html'">Delete</button></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Robert Brown</td>
+                    <td>Daisies</td>
+                    <td>18</td>
+                    <td>$3.50</td>
+                    <td><button class="edit-button" onclick="location.href='edit_order.html'">Edit</button></td>
+                    <td><button class="info-button" onclick="location.href='customer_info.html'">Info</button></td>
+                    <td><button class="delete-button" onclick="location.href='records.html'">Delete</button></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Emily Jones</td>
+                    <td>Sunflowers</td>
+                    <td>20</td>
+                    <td>$8.00</td>
+                    <td><button class="edit-button" onclick="location.href='edit_order.html'">Edit</button></td>
+                    <td><button class="info-button" onclick="location.href='customer_info.html'">Info</button></td>
+                    <td><button class="delete-button" onclick="location.href='records.html'">Delete</button></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <h2>ROSY FLORIST |</h2>
+        <h3><form method="post"><button><img src="../public/assets/styles/files/menu.png" alt="" width="50"></button></form></h3>
+    </div>
+</div>
+
+<%- include('footer') -%>

@@ -1,0 +1,100 @@
+@font-face {
+    font-family: "Black Jack";
+    src: url('./fonts/blackjack.woff');
+}
+
+body {
+    font-family: Garamond, cursive;
+    font-size: 16px;
+    text-align: center;
+    background-image: url('../styles/files/record.jpg');
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: top;
+}
+
+h1 {
+    font-family: Black Jack, cursive;
+    font-size: 50px;
+    color: antiquewhite;
+    margin-top: 100px;
+}
+
+.form-container {
+    background-color: rgb(233, 229, 225);
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.form-input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-submit {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-submit:hover {
+    background-color: #45a049;
+}
+
+.back-button {
+    padding: 10px 20px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.back-button:hover {
+    background-color: #d32f2f;
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgb(233, 229, 225);
+    border-radius: 10px;
+    text-align: center;
+
+}
+
+button {
+    background-color: rgb(233, 229, 225);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: gray;
+}
+
+h3 {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+}

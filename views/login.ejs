@@ -1,0 +1,55 @@
+<%- include('header') -%>
+<%- include('navbar') -%>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8">
+            <h1 class="text-center">Rosy Florist</h1>
+            <p class="text-center">Budapest, Hungary</p>
+            <hr class="separator">
+            <p class="text-center">BUSINESS INTERFACE</p>
+        </div>
+    </div>
+</div>
+
+<div class="login-box">
+    <div class="container-fluid brown-bg">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8">
+                <form action="/menu">
+                    <div class="mb-3 input-group">
+                        <span class="input-group-text">
+                            <img src="../public/assets/styles/files/username.png" alt="" width="30">
+                        </span>
+                        <input type="text" class="form-control w-100" placeholder="Felhasználónév" required>
+                    </div>
+                    <div class="mb-3 input-group">
+                        <span class="input-group-text">
+                            <img src="../public/assets/styles/files/key.png" alt="" width="30">
+                        </span>
+                        <input type="password" class="form-control w-100" placeholder="Jelszó" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-5">
+            <form action="/menu">
+                <button type="submit" class="btn btn-primary">Menu</button>
+            </form>
+        </div>
+        <div class="col-12 col-md-6">
+            <form action="/menu">
+                <button type="submit" class="btn btn-danger"><img src="../public/assets/styles/files/logout.png" alt="" height="10">   Logout</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('footer') -%>
