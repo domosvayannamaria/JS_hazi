@@ -1,4 +1,4 @@
-<%- include('header') -%>
+<%- include('header', {style: '/assets/styles/records.css'}) -%>
 <%- include('navbar') -%>
 
 <div class="background">
@@ -10,7 +10,7 @@
         </div>
         <div class="table-container">
             <div class="action-buttons">
-                <button onclick="location.href='/add_order.html'">Add new customer</button>
+                <button onclick="location.href='/menu/records/new'">Add new customer</button>
             </div>
             <table class="table-borderless">
                 <thead>
@@ -90,7 +90,7 @@
             </table>
         </div>
         <h2>ROSY FLORIST |</h2>
-        <h3><form method="post"><button><img src="../public/assets/styles/files/menu.png" alt="" width="50"></button></form></h3>
+        <h3><form action="/menu"><button><img src="/assets/styles/files/menu.png" alt="" width="50"></button></form></h3>
     </div>
 </div>
 

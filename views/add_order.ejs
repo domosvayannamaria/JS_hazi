@@ -1,8 +1,8 @@
-<%- include('header') -%>
+<%- include('header', {style: '/assets/styles/records_functions.css'}) -%>
 
 <h1>Add order</h1>
 <div class="form-container">
-    <form method="post">
+    <form href="/menu/records">
         <label for="customer_id" class="form-label">Customer ID:</label>
         <input type="text" id="customer_id" name="customer_id" class="form-input" value="7" readonly>
 
@@ -17,7 +17,7 @@
 
         <input type="submit" value="Add order" class="form-submit">
     </form>
-    <a href="records.ejs" class="back-button">Back</a>
+    <a href="/menu/records" class="back-button">Back</a>
 </div>
 
 <%- include('footer') -%>

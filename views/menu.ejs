@@ -1,17 +1,17 @@
-<%- include('header') -%>
+<%- include('header', {style: '/assets/styles/menu.css'}) -%>
 
 <div class="background">
     <div class="left-background"></div>
     <div class="right-background"></div>
     <div class="content">
         <h1>Menu</h1>
-        <form href="/records">
+        <form action="/menu/records">
             <button type="submit">Customer Record</button>
         </form>
-        <form href="/inventory">
+        <form action="/menu/inventory">
             <button type="submit">Inventory Management</button>
         </form>
-        <h3><form href="/"><button><img src="../public/assets/styles/files/vissza.png" alt="" width="20"></button></form></h3>
+        <h3><form action="/"><button><img src="/assets/styles/files/vissza.png" alt="" width="20"></button></form></h3>
     </div>
 </div>
 

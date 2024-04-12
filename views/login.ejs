@@ -1,4 +1,4 @@
-<%- include('header') -%>
+<%- include('header', {style: '/assets/styles/login.css'}) -%>
 <%- include('navbar') -%>
 
 <div class="container">
@@ -19,13 +19,13 @@
                 <form action="/menu">
                     <div class="mb-3 input-group">
                         <span class="input-group-text">
-                            <img src="../public/assets/styles/files/username.png" alt="" width="30">
+                            <img src="/assets/styles/files/username.png" alt="" width="30">
                         </span>
                         <input type="text" class="form-control w-100" placeholder="Felhasználónév" required>
                     </div>
                     <div class="mb-3 input-group">
                         <span class="input-group-text">
-                            <img src="../public/assets/styles/files/key.png" alt="" width="30">
+                            <img src="/assets/styles/files/key.png" alt="" width="30">
                         </span>
                         <input type="password" class="form-control w-100" placeholder="Jelszó" required>
                     </div>
@@ -46,7 +46,7 @@
         </div>
         <div class="col-12 col-md-6">
             <form action="/menu">
-                <button type="submit" class="btn btn-danger"><img src="../public/assets/styles/files/logout.png" alt="" height="10">   Logout</button>
+                <button type="submit" class="btn btn-danger"><img src="/assets/styles/files/logout.png" alt="" height="10">   Logout</button>
             </form>
         </div>
     </div>

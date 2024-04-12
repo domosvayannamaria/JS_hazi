@@ -1,4 +1,4 @@
-<%- include('header') -%>
+<%- include('header', {style: '/assets/styles/records_functions.css'}) -%>
 
 <h1>Customer Information</h1>
 <div class="form-container">
@@ -12,6 +12,6 @@
         <span class="form-label">Address:</span> <span id="address">123 Main Street, City, Country</span>
     </div>
 </div>
-<a href="records.ejs" class="back-button">Back</a>
+<a href="/menu/records" class="back-button">Back</a>
 
 <%- include('footer') -%>

@@ -14,12 +14,7 @@ const delFlowerMW = require('../middware/inventory/delFlowerMW');
 
 module.exports = function(app) {
     const objectRepository = {};
-    // Login route
-    app.use('/',
-        authMW(objectRepository),
-        passCheckMW(objectRepository),
-        renderMW(objectRepository, 'login')
-    );
+
 
     // Menu routes
     app.get('/menu',
@@ -78,4 +73,11 @@ module.exports = function(app) {
         authMW(objectRepository),
         saveFlowerMW(objectRepository),
         renderMW(objectRepository,'add_flower'));
+
+    // Login route
+    app.use('/',
+        authMW(objectRepository),
+        passCheckMW(objectRepository),
+        renderMW(objectRepository, 'login')
+    );
 };
