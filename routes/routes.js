@@ -21,7 +21,7 @@ module.exports = function(app) {
         authMW(objectRepository),
         renderMW(objectRepository,'menu'));
 
-    // Records routes
+    //Delete routes
 
     app.get('/menu/records/del/:customerID',
         authMW(objectRepository),
@@ -33,6 +33,8 @@ module.exports = function(app) {
         authMW(objectRepository),
         getFlowerMW(objectRepository),
         delFlowerMW(objectRepository));
+
+    // Records routes
 
     app.get('/menu/records',
         authMW(objectRepository),
