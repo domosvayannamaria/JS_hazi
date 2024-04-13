@@ -21,6 +21,19 @@ module.exports = function(app) {
         authMW(objectRepository),
         renderMW(objectRepository,'menu'));
 
+    // Records routes
+
+    app.get('/menu/records/del/:customerID',
+        authMW(objectRepository),
+        getOrderMW(objectRepository),
+        getCustomerMW(objectRepository),
+        delOrderMW(objectRepository));
+
+    app.get('/menu/inventory/del/:flowerID',
+        authMW(objectRepository),
+        getFlowerMW(objectRepository),
+        delFlowerMW(objectRepository));
+
     app.get('/menu/records',
         authMW(objectRepository),
         getRecordsMW(objectRepository),
@@ -40,14 +53,6 @@ module.exports = function(app) {
         saveOrderMW(objectRepository),
         renderMW(objectRepository,'edit_order'));
 
-    app.get('/menu/records/del/:customerID',
-        authMW(objectRepository),
-        getOrderMW(objectRepository),
-        getCustomerMW(objectRepository),
-        delOrderMW(objectRepository));
-
-
-
     // Customer info route
     app.get('/info/:customerID',
         authMW(objectRepository),
@@ -55,6 +60,9 @@ module.exports = function(app) {
         renderMW(objectRepository,'customer_info'));
 
     // Inventory routes
+
+
+
     app.get('/menu/inventory',
         authMW(objectRepository),
         getInventoryMW(objectRepository),
@@ -71,10 +79,7 @@ module.exports = function(app) {
         saveFlowerMW(objectRepository),
         renderMW(objectRepository,'edit_flower'));
 
-    app.get('/menu/inventory/del/:flowerID',
-        authMW(objectRepository),
-        getFlowerMW(objectRepository),
-        delFlowerMW(objectRepository));
+
 
 
     // Login route

@@ -2,8 +2,9 @@
  * delete flower, remove from the list of inventory
  */
 
-module.exports = function ( objectrepository ) {
+module.exports = function (objectRepository) {
     return function (req, res, next) {
-        return next();
+        const orderId = req.params.flowerID;
+        res.redirect('/menu/inventory');
     };
 };

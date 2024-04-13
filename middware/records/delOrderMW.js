@@ -2,8 +2,10 @@
  * delete the order, including customer information, remove from the records list
  */
 
-module.exports = function ( objectrepository ) {
+// delOrderMW middleware
+module.exports = function (objectRepository) {
     return function (req, res, next) {
-        return next();
+        const orderId = req.params.customerID;
+        res.redirect('/menu/records');
     };
 };
