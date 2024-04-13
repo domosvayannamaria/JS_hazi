@@ -2,18 +2,18 @@
 
 <h1>Add order</h1>
 <div class="form-container">
-    <form href="/menu/records">
-        <label for="customer_id" class="form-label">Customer ID:</label>
-        <input type="text" id="customer_id" name="customer_id" class="form-input" value="7" readonly>
+    <form action="/menu/records">
+        <label for="customerID" class="form-label">Customer ID:</label>
+        <input type="text" id="customerID" name="customerID" class="form-input" placeholder="7" readonly>
 
-        <label for="name" class="form-label">Name:</label>
-        <input type="text" id="name" name="name" class="form-input" value="Kate William" required>
+        <label for="cust_name" class="form-label">Name:</label>
+        <input type="text" id="name" name="name" class="form-input" placeholder="Kate William" required>
 
-        <label for="flower_type" class="form-label">Flower Type:</label>
-        <input type="text" id="flower_type" name="flower_type" class="form-input" value="Roses" required>
+        <label for="flower" class="form-label">Flower Type:</label>
+        <input type="text" id="flower" name="flower" class="form-input" placeholder="Roses" required>
 
         <label for="amount" class="form-label">Amount:</label>
-        <input type="number" id="amount" name="amount" class="form-input" value="3" required>
+        <input type="number" id="amount" name="amount" class="form-input" placeholder="3" required>
 
         <input type="submit" value="Add order" class="form-submit">
     </form>

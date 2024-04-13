@@ -15,84 +15,30 @@
             <table class="table-borderless">
                 <thead>
                 <tr>
-                    <th scope="col">Flower ID</th>
-                    <th scope="col">Flower Name</th>
-                    <th scope="col">Amount</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Edit</th>
-                    <th scope="col">Delete</th>
+                    <th>Flower ID</th>
+                    <th>Flower Name</th>
+                    <th>Amount</th>
+                    <th>Price</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
                 </thead>
-                <tbody class="table-group-divider">
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Dahlias</td>
-                    <td>10</td>
-                    <td>$5.00</td>
-                    <td><button class="edit-button" onclick="location.href='edit_flower.html'">Edit</button></td>
-                    <td><button class="delete-button" onclick="location.href='inventory.html'">Delete</button></td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Daisies</td>
-                    <td>8</td>
-                    <td>$3.50</td>
-                    <td><button class="edit-button" onclick="location.href='edit_flower.html'">Edit</button></td>
-                    <td><button class="delete-button" onclick="location.href='inventory.html'">Delete</button></td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Mums</td>
-                    <td>18</td>
-                    <td>$5.50</td>
-                    <td><button class="edit-button" onclick="location.href='edit_flower.html'">Edit</button></td>
-                    <td><button class="delete-button" onclick="location.href='inventory.html'">Delete</button></td>
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>Feverfew</td>
-                    <td>15</td>
-                    <td>$4.25</td>
-                    <td><button class="edit-button" onclick="location.href='edit_flower.html'">Edit</button></td>
-                    <td><button class="delete-button" onclick="location.href='inventory.html'">Delete</button></td>
-                </tr>
-                <tr>
-                    <th scope="row">5</th>
-                    <td>Hyacinth</td>
-                    <td>20</td>
-                    <td>$6.00</td>
-                    <td><button class="edit-button" onclick="location.href='edit_flower.html'">Edit</button></td>
-                    <td><button class="delete-button" onclick="location.href='inventory.html'">Delete</button></td>
-                </tr>
-                <tr>
-                    <th scope="row">6</th>
-                    <td>Lilies</td>
-                    <td>12</td>
-                    <td>$4.75</td>
-                    <td><button class="edit-button" onclick="location.href='edit_flower.html'">Edit</button></td>
-                    <td><button class="delete-button" onclick="location.href='inventory.html'">Delete</button></td>
-                </tr>
-                <tr>
-                    <th scope="row">7</th>
-                    <td>Orchid</td>
-                    <td>22</td>
-                    <td>$7.00</td>
-                    <td><button class="edit-button" onclick="location.href='edit_flower.html'">Edit</button></td>
-                    <td><button class="delete-button" onclick="location.href='inventory.html'">Delete</button></td>
-                </tr>
-                <tr>
-                    <th scope="row">8</th>
-                    <td>Peony</td>
-                    <td>9</td>
-                    <td>$6.25</td>
-                    <td><button class="edit-button" onclick="location.href='edit_flower.html'">Edit</button></td>
-                    <td><button class="delete-button" onclick="location.href='inventory.html'">Delete</button></td>
-                </tr>
+                <tbody>
+                <% inventory.forEach(function (flower) { %>
+                    <tr>
+                        <td><%= flower.flowerID %></td>
+                        <td><%= flower.flower_name %></td>
+                        <td><%= flower.flower_amount %></td>
+                        <td><%= flower.flower_price %></td>
+                        <td><button class="edit-button" onclick="location.href='/menu/inventory/edit/<%= flower.flowerID %>'">Edit</button></td>
+                        <td><button class="delete-button" onclick="location.href='/menu/inventory/del/<%= flower.flowerID %>'">Delete</button></td>
+                    </tr>
+                <% }); %>
                 </tbody>
             </table>
         </div>
         <h2>ROSY FLORIST |</h2>
-        <h3><form action="/menu" ><button><img src="/assets/styles/files/menu.png" alt="" width="50"></button></form></h3>
+        <h3><form action="/menu"><button><img src="/assets/styles/files/menu.png" alt="" width="50"></button></form></h3>
     </div>
 </div>
 

@@ -4,6 +4,15 @@
 
 module.exports = function ( objectrepository ) {
     return function (req, res, next) {
-        return next();
+        if(typeof req.body.cust_name === 'undefined' || typeof req.body.phone === 'undefined' ||
+            typeof req.body.address === 'undefined'
+        ){
+            return next();
+        }
+
+        console.log(req.body);
+
+        res.redirect('/menu/records');
+        next();
     };
 };

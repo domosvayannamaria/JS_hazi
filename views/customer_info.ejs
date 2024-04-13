@@ -3,13 +3,13 @@
 <h1>Customer Information</h1>
 <div class="form-container">
     <div class="form-label">
-        <span class="form-label">Full Name:</span> <span id="name">John Doe</span>
+        <span class="form-label">Full Name:</span> <span id="cust_name"><%= customer[0].name %></span>
     </div>
     <div class="form-label">
-        <span class="form-label">Phone Number:</span> <span id="phone">123-456-7890</span>
+        <span class="form-label">Phone Number:</span> <span id="phone"><%= customer[0].phone %></span>
     </div>
     <div class="form-label">
-        <span class="form-label">Address:</span> <span id="address">123 Main Street, City, Country</span>
+        <span class="form-label">Address:</span> <span id="address"><%= customer[0].address %></span>
     </div>
 </div>
 <a href="/menu/records" class="back-button">Back</a>
