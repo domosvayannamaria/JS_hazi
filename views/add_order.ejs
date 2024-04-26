@@ -1,32 +1,38 @@
 <%- include('header', {style: '/assets/styles/records_functions.css'}) -%>
 
-<h1>Add order</h1>
+<h1>
+    <% if (typeof order === 'undefined') { %>
+        Add order
+    <% } else { %>
+        Edit order
+    <% } %>
+</h1>
 <div class="form-container">
     <form action="/menu/records">
         <label for="customerID" class="form-label">Customer ID:</label>
-        <input type="text" id="customerID" name="customerID" class="form-input" placeholder="7" readonly>
+        <input type="text" id="customerID" name="customerID" class="form-input" value="<%= (typeof order !== 'undefined') ? order.customerID : '' %>" <%= (typeof order === 'undefined') ? 'readonly' : 'required' %>>
 
         <label for="flower_type" class="form-label">Flower Type:</label>
-        <input type="text" id="flower_type" name="flower_type" class="form-input" placeholder="Roses" required>
+        <input type="text" id="flower_type" name="flower_type" class="form-input" value="<%= (typeof order !== 'undefined') ? order.flower_name : '' %>" required>
 
         <label for="amount" class="form-label">Amount:</label>
-        <input type="number" id="amount" name="amount" class="form-input" placeholder="3" required>
+        <input type="number" id="amount" name="amount" class="form-input" value="<%= (typeof order !== 'undefined') ? order.amount : '' %>" required>
 
         <label for="price" class="form-label">Price:</label>
-        <input type="text" id="price" name="price" class="form-input" placeholder="$0.00" required>
+        <input type="text" id="price" name="price" class="form-input" value="<%= (typeof order !== 'undefined') ? order.price : '' %>" required>
 
         <h2>Customer information</h2>
 
         <label for="cust_name" class="form-label">Name:</label>
-        <input type="text" id="cust_name" name="cust_name" class="form-input" placeholder="Kate William" required>
+        <input type="text" id="cust_name" name="cust_name" class="form-input" value="<%= (typeof order !== 'undefined') ? order.cust_name : '' %>" required>
 
         <label for="phone" class="form-label">Phone:</label>
-        <input type="text" id="phone" name="phone" class="form-input" placeholder="123-456-7890" required>
+        <input type="text" id="phone" name="phone" class="form-input" value="<%= (typeof order !== 'undefined') ? order.phone : '' %>" required>
 
         <label for="address" class="form-label">Address:</label>
-        <input type="text" id="address" name="address" class="form-input" placeholder="123 Main Street, City, Country" required>
+        <input type="text" id="address" name="address" class="form-input" value="<%= (typeof order !== 'undefined') ? order.address : '' %>" required>
 
-        <input type="submit" value="Add order" class="form-submit">
+        <input type="submit" value="<%= (typeof order === 'undefined') ? 'Add order' : 'Update info' %>" class="form-submit">
     </form>
     <a href="/menu/records" class="back-button">Back</a>
 </div>

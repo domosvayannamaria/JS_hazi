@@ -6,6 +6,8 @@ module.exports = function ( objectrepository ) {
     return function (req, res, next) {
         if(typeof req.body.customerID === 'undefined' || typeof req.body.flower_name === 'undefined'
             || typeof req.body.amount === 'undefined' || typeof req.body.price == 'undefined'
+            || typeof req.body.cust_name == 'undefined' || typeof req.body.phone == 'undefined'
+            || typeof req.body.address == 'undefined'
         ){
             return next();
         }

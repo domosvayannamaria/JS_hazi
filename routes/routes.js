@@ -53,7 +53,7 @@ module.exports = function(app) {
         getCustomerMW(objectRepository),
         saveCustomerMW(objectRepository),
         saveOrderMW(objectRepository),
-        renderMW(objectRepository,'edit_order'));
+        renderMW(objectRepository,'add_order'));
 
     // Customer info route
     app.get('/info/:customerID',
@@ -79,7 +79,7 @@ module.exports = function(app) {
         authMW(objectRepository),
         getFlowerMW(objectRepository),
         saveFlowerMW(objectRepository),
-        renderMW(objectRepository,'edit_flower'));
+        renderMW(objectRepository,'add_flower'));
 
 
 

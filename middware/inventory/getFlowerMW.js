@@ -5,9 +5,10 @@
 module.exports = function (objectrepository) {
     return function (req, res, next) {
         res.locals.flower = {
+            flowerID : '1',
             flower_name: 'Dahlias',
             flower_amount: '10',
-            flower_price: '$5.00'
+            flower_price: '5.00'
         };
         return next();
     };

@@ -1,18 +1,29 @@
 <%- include('header', {style: '/assets/styles/inventory_functions.css'}) -%>
 
-<h1>Add new flower</h1>
+<h1>
+    <% if (typeof flower === 'undefined') { %>
+        Add new flower
+    <% } else { %>
+        Edit flower
+    <% } %>
+</h1>
 <div class="container">
     <form action="/menu/inventory">
+        <% if (typeof flower !== 'undefined') { %>
+            <label for="flower_id">Flower ID:</label><br>
+            <input type="text" id="flower_id" name="flower_id" value="<%= flower.flowerID %>" readonly><br>
+        <% } %>
+
         <label for="flower_name"> Flower Name: </label><br>
-        <input type="text" id="flower_name" name="flower_name" required><br>
+        <input type="text" id="flower_name" name="flower_name" value="<%= (typeof flower !== 'undefined') ? flower.flower_name : '' %>" required><br>
 
         <label for="flower_amount">Amount:</label><br>
-        <input type="number" id="flower_amount" name="amount" required><br>
+        <input type="number" id="flower_amount" name="amount" value="<%= (typeof flower !== 'undefined') ? flower.flower_amount : '' %>" required><br>
 
         <label for="flower_price">Price:</label><br>
-        <input type="number" id="flower_price" name="price" step="0.01" required><br>
+        <input type="number" id="flower_price" name="price" value="<%= (typeof flower !== 'undefined') ? flower.flower_price : '' %>" step="0.01" required><br>
 
-        <input type="submit" value="Add Flower">
+        <input type="submit" value="<%= (typeof flower === 'undefined') ? 'Add Flower' : 'Edit flower' %>">
     </form>
 </div>
 <h3><form action="/menu/inventory"><button><img src="/assets/styles/files/vissza.png" alt="" width="30"></button></form></h3>
