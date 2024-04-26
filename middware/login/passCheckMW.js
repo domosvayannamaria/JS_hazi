@@ -4,8 +4,21 @@
  * if it's wrong, set error message
  */
 
-module.exports = function ( objectrepository ) {
+module.exports = function (objectRepository) {
     return function (req, res, next) {
+        if (typeof req.body.password === 'undefined') {
+            return next();
+        }
+
+        if (req.body.password === 'rosy') {
+            req.session.login = true;
+            return req.session.save((err => {
+                return res.redirect('/menu');
+            }))
+
+        }
+
+        res.locals.error = 'Hibás jelszó!';
         return next();
     };
 };

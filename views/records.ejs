@@ -12,44 +12,48 @@
             <div class="action-buttons">
                 <button onclick="location.href='/menu/records/new'">Add new order</button>
             </div>
-            <table class="table-borderless">
-                <thead>
-                <tr>
-                    <th>Customer ID</th>
-                    <th>Name</th>
-                    <th>Flower Type</th>
-                    <th>Amount</th>
-                    <th>Price</th>
-                    <th>Edit</th>
-                    <th>Info</th>
-                    <th>Delete</th>
-                </tr>
-                </thead>
-                <tbody>
-                <%records.forEach(function (rec){ %>
-                <tr>
-                    <td>
-                        <%= rec.customerID %>
-                    </td>
-                    <td>
-                        <%= rec.cust_name %>
-                    </td>
-                    <td>
-                        <%= rec.flower_name %>
-                    </td>
-                    <td>
-                        <%= rec.amount %>
-                    </td>
-                    <td>
-                        <%= rec.price %>
-                    </td>
-                    <td><button class="edit-button" onclick="location.href='/menu/records/<%= rec.customerID %>'">Edit</button></td>
-                    <td><button class="info-button" onclick="location.href='/info/<%= rec.customerID %>'">Info</button></td>
-                    <td><button class="delete-button" onclick="location.href='/menu/records/del/<%= rec.customerID %>'">Delete</button></td>
-                </tr>
-                <% }); %>
-                </tbody>
-            </table>
+            <% if (typeof noRecords !== 'undefined') {%>
+                <div class="alert alert-secondary"><%= noRecords %></div>
+            <%}else{%>
+                <table class="table-borderless">
+                    <thead>
+                    <tr>
+                        <th>Customer ID</th>
+                        <th>Name</th>
+                        <th>Flower Type</th>
+                        <th>Amount</th>
+                        <th>Price</th>
+                        <th>Edit</th>
+                        <th>Info</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <%records.forEach(function (rec){ %>
+                    <tr>
+                        <td>
+                            <%= rec.customerID %>
+                        </td>
+                        <td>
+                            <%= rec.cust_name %>
+                        </td>
+                        <td>
+                            <%= rec.flower_name %>
+                        </td>
+                        <td>
+                            <%= rec.amount %>
+                        </td>
+                        <td>
+                            <%= rec.price %>
+                        </td>
+                        <td><button class="edit-button" onclick="location.href='/menu/records/<%= rec.customerID %>'">Edit</button></td>
+                        <td><button class="info-button" onclick="location.href='/info/<%= rec.customerID %>'">Info</button></td>
+                        <td><button class="delete-button" onclick="location.href='/menu/records/del/<%= rec.customerID %>'">Delete</button></td>
+                    </tr>
+                    <% }); %>
+                    </tbody>
+                </table>
+            <%}%>
         </div>
         <h2>ROSY FLORIST |</h2>
         <h3><form action="/menu"><button><img src="/assets/styles/files/menu.png" alt="" width="50"></button></form></h3>

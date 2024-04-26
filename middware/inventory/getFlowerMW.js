@@ -1,15 +1,16 @@
-/**
- * get the information about one flower
- */
+const requireOption = require('../requireOption');
 
-module.exports = function (objectrepository) {
+module.exports = function (objectRepository) {
+    const FlowerModel = requireOption(objectRepository, 'FlowerModel');
+
     return function (req, res, next) {
-        res.locals.flower = {
-            flowerID : '1',
-            flower_name: 'Dahlias',
-            flower_amount: '10',
-            flower_price: '5.00'
-        };
-        return next();
+        FlowerModel.findOne({_id: req.params.flowerID}, (err, flower)=> {
+            if(err || !flower){
+                return next(err);
+            }
+
+            res.locals.flower = flower;
+            return next();
+        });
     };
 };

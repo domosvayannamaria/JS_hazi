@@ -2,8 +2,11 @@
  * If the user is not logged in, redirects to /
  */
 
-module.exports = function ( objectrepository ) {
+module.exports = function (objectRepository) {
     return function (req, res, next) {
-        return next();
+        if(typeof req.session.login === 'undefined' || req.session.login !== true){
+            return res.redirect('/');
+        }
+        next();
     };
 };

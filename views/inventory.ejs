@@ -12,30 +12,34 @@
             <div class="action-buttons">
                 <button onclick="location.href='/menu/inventory/new'">Add new flower</button>
             </div>
-            <table class="table-borderless">
-                <thead>
-                <tr>
-                    <th>Flower ID</th>
-                    <th>Flower Name</th>
-                    <th>Amount</th>
-                    <th>Price</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
-                </tr>
-                </thead>
-                <tbody>
-                <% inventory.forEach(function (flower) { %>
+            <% if (typeof noFlowers !== 'undefined') {%>
+                <div class="alert alert-secondary"><%= noFlowers %></div>
+            <%}else{%>
+                <table class="table-borderless">
+                    <thead>
                     <tr>
-                        <td><%= flower.flowerID %></td>
-                        <td><%= flower.flower_name %></td>
-                        <td><%= flower.flower_amount %></td>
-                        <td><%= flower.flower_price %></td>
-                        <td><button class="edit-button" onclick="location.href='/menu/inventory/edit/<%= flower.flowerID %>'">Edit</button></td>
-                        <td><button class="delete-button" onclick="location.href='/menu/inventory/del/<%= flower.flowerID %>'">Delete</button></td>
+                        <th>Flower ID</th>
+                        <th>Flower Name</th>
+                        <th>Amount</th>
+                        <th>Price</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                     </tr>
-                <% }); %>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                    <% inventory.forEach(function (flower) { %>
+                        <tr>
+                            <td><%= flower.flowerID %></td>
+                            <td><%= flower.flower_name %></td>
+                            <td><%= flower.flower_amount %></td>
+                            <td><%= flower.flower_price %></td>
+                            <td><button class="edit-button" onclick="location.href='/menu/inventory/edit/<%= flower.flowerID %>'">Edit</button></td>
+                            <td><button class="delete-button" onclick="location.href='/menu/inventory/del/<%= flower.flowerID %>'">Delete</button></td>
+                        </tr>
+                    <% }); %>
+                    </tbody>
+                </table>
+            <%}%>
         </div>
         <h2>ROSY FLORIST |</h2>
         <h3><form action="/menu"><button><img src="/assets/styles/files/menu.png" alt="" width="50"></button></form></h3>

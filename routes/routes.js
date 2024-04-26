@@ -3,8 +3,8 @@ const passCheckMW = require('../middware/login/passCheckMW');
 const renderMW = require('../middware/renderMW');
 const getRecordsMW = require('../middware/records/getRecordsMW');
 const getOrderMW = require('../middware/records/getOrderMW');
-const getCustomerMW = require('../middware/records/getCustomerMW');
-const saveCustomerMW = require('../middware/records/saveCustomerMW');
+
+
 const saveOrderMW = require('../middware/records/saveOrderMW');
 const delOrderMW = require('../middware/records/delOrderMW');
 const getInventoryMW = require('../middware/inventory/getInventoryMW');
@@ -12,8 +12,16 @@ const getFlowerMW = require('../middware/inventory/getFlowerMW');
 const saveFlowerMW = require('../middware/inventory/saveFlowerMW');
 const delFlowerMW = require('../middware/inventory/delFlowerMW');
 
+//modellek betoltese
+const OrderModel = require('../models/order')
+const FlowerModel = require('../models/flower')
+
+
 module.exports = function(app) {
-    const objectRepository = {};
+    const objectRepository = {
+        OrderModel: OrderModel,
+        FlowerModel: FlowerModel
+    };
 
 
     // Menu routes
@@ -26,7 +34,6 @@ module.exports = function(app) {
     app.get('/menu/records/del/:customerID',
         authMW(objectRepository),
         getOrderMW(objectRepository),
-        getCustomerMW(objectRepository),
         delOrderMW(objectRepository));
 
     app.get('/menu/inventory/del/:flowerID',
@@ -44,21 +51,18 @@ module.exports = function(app) {
     app.use('/menu/records/new',
         authMW(objectRepository),
         saveOrderMW(objectRepository),
-        saveCustomerMW(objectRepository),
         renderMW(objectRepository,'add_order'));
 
     app.use('/menu/records/:customerID',
         authMW(objectRepository),
         getOrderMW(objectRepository),
-        getCustomerMW(objectRepository),
-        saveCustomerMW(objectRepository),
         saveOrderMW(objectRepository),
         renderMW(objectRepository,'add_order'));
 
     // Customer info route
     app.get('/info/:customerID',
         authMW(objectRepository),
-        getCustomerMW(objectRepository),
+        getOrderMW(objectRepository),
         renderMW(objectRepository,'customer_info'));
 
     // Inventory routes
