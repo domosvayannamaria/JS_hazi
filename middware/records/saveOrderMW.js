@@ -28,12 +28,13 @@ module.exports = function (objectRepository) {
         res.locals.order.phone = req.body.phone;
         res.locals.order.address = req.body.address;
 
-        res.locals.order.save((err)=>{
-            if(err){
+        res.locals.order
+            .save()
+            .then(() => {
+                return res.redirect('/menu/records');
+            })
+            .catch((err) => {
                 return next(err);
-            }
-
-            return res.redirect('/menu/records');
-        });
+            });
     };
 };

@@ -29,26 +29,16 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <%records.forEach(function (rec){ %>
+                    <%records.forEach(function (order){ %>
                     <tr>
-                        <td>
-                            <%= rec.customerID %>
-                        </td>
-                        <td>
-                            <%= rec.cust_name %>
-                        </td>
-                        <td>
-                            <%= rec.flower_name %>
-                        </td>
-                        <td>
-                            <%= rec.amount %>
-                        </td>
-                        <td>
-                            <%= rec.price %>
-                        </td>
-                        <td><button class="edit-button" onclick="location.href='/menu/records/<%= rec.customerID %>'">Edit</button></td>
-                        <td><button class="info-button" onclick="location.href='/info/<%= rec.customerID %>'">Info</button></td>
-                        <td><button class="delete-button" onclick="location.href='/menu/records/del/<%= rec.customerID %>'">Delete</button></td>
+                        <td> <%= order.customerID %> </td>
+                        <td> <%= order.cust_name %> </td>
+                        <td> <%= order.flower_name %> </td>
+                        <td> <%= order.amount %> </td>
+                        <td> <%= order.price %> </td>
+                        <td><button class="edit-button" onclick="location.href='/menu/records/edit/<%= order.customerID %>'">Edit</button></td>
+                        <td><button class="info-button" onclick="location.href='/info/<%= order.customerID %>'">Info</button></td>
+                        <td><button class="delete-button" onclick="location.href='/menu/records/del/<%= order.customerID %>'">Delete</button></td>
                     </tr>
                     <% }); %>
                     </tbody>

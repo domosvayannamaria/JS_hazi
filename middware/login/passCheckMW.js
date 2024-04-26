@@ -6,11 +6,11 @@
 
 module.exports = function (objectRepository) {
     return function (req, res, next) {
-        if (typeof req.body.password === 'undefined') {
+        if (typeof req.body.username === 'undefined' || typeof req.body.password === 'undefined') {
             return next();
         }
 
-        if (req.body.password === 'rosy') {
+        if (req.body.password === 'rosy' || req.body.username === 'rosy') {
             req.session.login = true;
             return req.session.save((err => {
                 return res.redirect('/menu');

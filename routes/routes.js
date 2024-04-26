@@ -3,8 +3,6 @@ const passCheckMW = require('../middware/login/passCheckMW');
 const renderMW = require('../middware/renderMW');
 const getRecordsMW = require('../middware/records/getRecordsMW');
 const getOrderMW = require('../middware/records/getOrderMW');
-
-
 const saveOrderMW = require('../middware/records/saveOrderMW');
 const delOrderMW = require('../middware/records/delOrderMW');
 const getInventoryMW = require('../middware/inventory/getInventoryMW');
@@ -23,11 +21,11 @@ module.exports = function(app) {
         FlowerModel: FlowerModel
     };
 
-
     // Menu routes
     app.get('/menu',
         authMW(objectRepository),
         renderMW(objectRepository,'menu'));
+
 
     //Delete routes
 
@@ -42,22 +40,21 @@ module.exports = function(app) {
         delFlowerMW(objectRepository));
 
     // Records routes
-
-    app.get('/menu/records',
-        authMW(objectRepository),
-        getRecordsMW(objectRepository),
-        renderMW(objectRepository,'records'));
-
     app.use('/menu/records/new',
         authMW(objectRepository),
         saveOrderMW(objectRepository),
         renderMW(objectRepository,'add_order'));
 
-    app.use('/menu/records/:customerID',
+    app.use('/menu/records/edit/:customerID',
         authMW(objectRepository),
         getOrderMW(objectRepository),
         saveOrderMW(objectRepository),
         renderMW(objectRepository,'add_order'));
+
+    app.get('/menu/records',
+        authMW(objectRepository),
+        getRecordsMW(objectRepository),
+        renderMW(objectRepository,'records'));
 
     // Customer info route
     app.get('/info/:customerID',
@@ -90,7 +87,6 @@ module.exports = function(app) {
 
     // Login route
     app.use('/',
-        authMW(objectRepository),
         passCheckMW(objectRepository),
         renderMW(objectRepository, 'login')
     );

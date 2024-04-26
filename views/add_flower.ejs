@@ -7,21 +7,19 @@
         Edit flower
     <% } %>
 </h1>
-<div class="container">
-    <form action="/menu/inventory">
-        <% if (typeof flower !== 'undefined') { %>
-            <label for="flower_id">Flower ID:</label><br>
-            <input type="text" id="flower_id" name="flower_id" value="<%= flower.flowerID %>" readonly><br>
-        <% } %>
+<div class="form-container">
+    <form method="POST" >
+        <label for="flowerID" class="form-label">Flower ID:</label>
+        <input type="number" id="flowerID" name="flowerID" class="form-input" value="<%= (typeof flower !== 'undefined') ? flower.flowerID : '' %>"  required>
 
-        <label for="flower_name"> Flower Name: </label><br>
-        <input type="text" id="flower_name" name="flower_name" value="<%= (typeof flower !== 'undefined') ? flower.flower_name : '' %>" required><br>
+        <label for="flower_name" class="form-label">Flower Name: </label>
+        <input type="text" id="flower_name" name="flower_name" class="form-input" value="<%= (typeof flower !== 'undefined') ? flower.flower_name : '' %>"  required>
 
-        <label for="flower_amount">Amount:</label><br>
-        <input type="number" id="flower_amount" name="amount" value="<%= (typeof flower !== 'undefined') ? flower.flower_amount : '' %>" required><br>
+        <label for="flower_amount" class="form-label">Amount:</label>
+        <input type="number" id="flower_amount" name="flower_amount" class="form-input" value="<%= (typeof flower !== 'undefined') ? flower.flower_amount : '' %>"  required>
 
-        <label for="flower_price">Price:</label><br>
-        <input type="number" id="flower_price" name="price" value="<%= (typeof flower !== 'undefined') ? flower.flower_price : '' %>" step="0.01" required><br>
+        <label for="flower_price" class="form-label">Price:</label>
+        <input type="number" id="flower_price" name="flower_price" class="form-input" value="<%= (typeof flower !== 'undefined') ? flower.flower_price : '' %>"  required>
 
         <input type="submit" value="<%= (typeof flower === 'undefined') ? 'Add Flower' : 'Edit flower' %>">
     </form>

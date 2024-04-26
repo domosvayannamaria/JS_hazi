@@ -4,21 +4,17 @@ module.exports = function (objectRepository) {
     const FlowerModel = requireOption(objectRepository, 'FlowerModel');
 
     return function (req, res, next) {
-        if(typeof  res.locals.order === 'undefined'){
-            return next();
-        }
+        FlowerModel.find({})
+            .then(inventory => {
+                res.locals.inventory = inventory;
 
-        FlowerModel.find({flowerID: res.locals.flowerID}, (err, flowers)=> {
-            if(err){
+                if (res.locals.inventory.length === 0) {
+                    res.locals.noFlowers = 'Egy virág sem található.';
+                }
+                return next();
+            })
+            .catch(err => {
                 return next(err);
-            }
-
-            res.locals.inventory = flowers;
-
-            if (res.locals.inventory.length === 0){
-                res.locals.noFlowers = 'Nincsenek virágok az adatbázisban.'
-            }
-            return next();
-        });
+            });
     };
 };

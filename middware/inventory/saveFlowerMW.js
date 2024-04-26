@@ -21,12 +21,13 @@ module.exports = function (objectRepository) {
         res.locals.flower.flower_amount = req.body.flower_amount;
         res.locals.flower.flower_price = req.body.flower_price;
 
-        res.locals.flower.save((err)=>{
-            if(err){
+        res.locals.flower
+            .save()
+            .then(() => {
+                return res.redirect('/menu/inventory');
+            })
+            .catch((err) => {
                 return next(err);
-            }
-
-            res.redirect('/menu/inventory');
-        });
+            });
     };
 };
