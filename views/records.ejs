@@ -36,9 +36,9 @@
                         <td> <%= order.flower_name %> </td>
                         <td> <%= order.amount %> </td>
                         <td> <%= order.price %> </td>
-                        <td><button class="edit-button" onclick="location.href='/menu/records/edit/<%= order.customerID %>'">Edit</button></td>
-                        <td><button class="info-button" onclick="location.href='/info/<%= order.customerID %>'">Info</button></td>
-                        <td><button class="delete-button" onclick="location.href='/menu/records/del/<%= order.customerID %>'">Delete</button></td>
+                        <td><button class="edit-button" onclick="location.href='/menu/records/edit/<%= order._id %>'">Edit</button></td>
+                        <td><button class="info-button" onclick="location.href='/info/<%= order._id %>'">Info</button></td>
+                        <td><button class="delete-button" onclick="location.href='/menu/records/del/<%= order._id %>'">Delete</button></td>
                     </tr>
                     <% }); %>
                     </tbody>

@@ -1,5 +1,6 @@
 const authMW = require('../middware/login/authMW');
 const passCheckMW = require('../middware/login/passCheckMW');
+const logoutMW = require('../middware/login/logoutMW');
 const renderMW = require('../middware/renderMW');
 const getRecordsMW = require('../middware/records/getRecordsMW');
 const getOrderMW = require('../middware/records/getOrderMW');
@@ -29,12 +30,12 @@ module.exports = function(app) {
 
     //Delete routes
 
-    app.get('/menu/records/del/:customerID',
+    app.get('/menu/records/del/:order_id',
         authMW(objectRepository),
         getOrderMW(objectRepository),
         delOrderMW(objectRepository));
 
-    app.get('/menu/inventory/del/:flowerID',
+    app.get('/menu/inventory/del/:flower_id',
         authMW(objectRepository),
         getFlowerMW(objectRepository),
         delFlowerMW(objectRepository));
@@ -42,12 +43,14 @@ module.exports = function(app) {
     // Records routes
     app.use('/menu/records/new',
         authMW(objectRepository),
+        getInventoryMW(objectRepository),
         saveOrderMW(objectRepository),
         renderMW(objectRepository,'add_order'));
 
-    app.use('/menu/records/edit/:customerID',
+    app.use('/menu/records/edit/:order_id',
         authMW(objectRepository),
         getOrderMW(objectRepository),
+        getInventoryMW(objectRepository),
         saveOrderMW(objectRepository),
         renderMW(objectRepository,'add_order'));
 
@@ -57,7 +60,7 @@ module.exports = function(app) {
         renderMW(objectRepository,'records'));
 
     // Customer info route
-    app.get('/info/:customerID',
+    app.get('/info/:order_id',
         authMW(objectRepository),
         getOrderMW(objectRepository),
         renderMW(objectRepository,'customer_info'));
@@ -76,14 +79,17 @@ module.exports = function(app) {
         saveFlowerMW(objectRepository),
         renderMW(objectRepository,'add_flower'));
 
-    app.use('/menu/inventory/:flowerID',
+    app.use('/menu/inventory/edit/:flower_id',
         authMW(objectRepository),
         getFlowerMW(objectRepository),
         saveFlowerMW(objectRepository),
         renderMW(objectRepository,'add_flower'));
 
 
-
+    //Logout route
+    app.use('/logout',
+        logoutMW(objectRepository)
+    );
 
     // Login route
     app.use('/',

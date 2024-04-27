@@ -10,13 +10,24 @@
 <div class="form-container">
     <form method="POST" >
         <label for="customerID" class="form-label">Customer ID:</label>
-        <input type="number" id="customerID" name="customerID" class="form-input" value="<%= (typeof order !== 'undefined') ? order.customerID : '' %>"  required>
+        <input type="text" id="customerID" name="customerID" class="form-input" value="<%= (typeof order !== 'undefined') ? order.customerID : '' %>"  required>
 
         <label for="flower_name" class="form-label">Flower Type:</label>
-        <input type="text" id="flower_name" name="flower_name" class="form-input" value="<%= (typeof order !== 'undefined') ? order.flower_name : '' %>" required>
+        <select id="flower_name" name="flower_name" class="form-input" required>
+            <option value="" disabled selected>Select Flower</option>
+            <% inventory.forEach(function(flower) { %>
+                <option value="<%= flower.flower_name %>"><%= flower.flower_name %></option>
+            <% }); %>
+        </select>
 
         <label for="amount" class="form-label">Amount:</label>
         <input type="number" id="amount" name="amount" class="form-input" value="<%= (typeof order !== 'undefined') ? order.amount : '' %>" required>
+        <div class="error-message">
+            <% if (typeof errorMessage !== 'undefined') { %>
+                <%= errorMessage %>
+            <% } %>
+        </div>
+
 
         <label for="price" class="form-label">Price:</label>
         <input type="number" id="price" name="price" class="form-input" value="<%= (typeof order !== 'undefined') ? order.price : '' %>" required>

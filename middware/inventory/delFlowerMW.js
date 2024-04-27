@@ -3,26 +3,26 @@
  */
 
 module.exports = function (objectRepository) {
+    const FlowerModel = objectRepository.FlowerModel;
+    const OrderModel = objectRepository.OrderModel;
+
     return function (req, res, next) {
-        if(typeof  res.locals.flower === 'undefined'){
+        if(typeof res.locals.flower === 'undefined'){
             return next();
         }
 
-        // Törli a virághoz tartozó összes rendelést
-        res.locals.records.forEach(function (order){
-            order.remove((err)=>{
-                if(err){
-                    return next(err);
+        OrderModel.deleteMany({ flower_name: res.locals.flower.flower_name })
+            .then(() => {
+                return FlowerModel.findByIdAndDelete(res.locals.flower._id);
+            })
+            .then((removedFlower) => {
+                if (!removedFlower) {
+                    return next(new Error('Flower not found'));
                 }
-            });
-        });
-
-        res.locals.flower.remove((err)=>{
-            if(err){
+                return res.redirect('/menu/inventory');
+            })
+            .catch((err) => {
                 return next(err);
-            }
-            return res.redirect('/menu/inventory');
-        });
-
+            });
     };
 };

@@ -1,40 +1,69 @@
 /**
- * save added information about order, add to the records list
+ * Save added information about order, add to the records list
  */
 
 const requireOption = require('../requireOption');
 
 module.exports = function (objectRepository) {
     const OrderModel = requireOption(objectRepository, 'OrderModel');
+    const FlowerModel = requireOption(objectRepository, 'FlowerModel');
 
     return function (req, res, next) {
-        if(typeof req.body.customerID === 'undefined' || typeof req.body.flower_name === 'undefined'
-            || typeof req.body.amount === 'undefined' || typeof req.body.price == 'undefined'
-            || typeof req.body.cust_name == 'undefined' || typeof req.body.phone == 'undefined'
-            || typeof req.body.address == 'undefined'
-        ){
+        if (
+            typeof req.body.customerID === 'undefined' ||
+            typeof req.body.flower_name === 'undefined' ||
+            typeof req.body.amount === 'undefined' ||
+            typeof req.body.price === 'undefined' ||
+            typeof req.body.cust_name === 'undefined' ||
+            typeof req.body.phone === 'undefined' ||
+            typeof req.body.address === 'undefined'
+        ) {
             return next();
         }
 
-        if(typeof res.locals.order === 'undefined'){
-            res.locals.order = new OrderModel();
-        }
+        // Ellenőrizzük, hogy a kiválasztott virág szerepel-e az inventory-ban
+        FlowerModel.findOne({ flower_name: req.body.flower_name })
+            .then((flower) => {
+                if (!flower) {
+                    const err = new Error('Selected flower not found in inventory');
+                    err.status = 400;
+                    throw err;
+                }
+                // Virág szerepel az inventory-ban, így mentjük a rendelést
+                if (typeof res.locals.order === 'undefined') {
+                    res.locals.order = new OrderModel();
+                }
 
-        res.locals.order.customerID = req.body.customerID;
-        res.locals.order.flower_name = req.body.flower_name;
-        res.locals.order.amount = req.body.amount;
-        res.locals.order.price = req.body.price;
-        res.locals.order.cust_name = req.body.cust_name;
-        res.locals.order.phone = req.body.phone;
-        res.locals.order.address = req.body.address;
+                res.locals.order.customerID = req.body.customerID;
+                res.locals.order.flower_name = req.body.flower_name;
+                res.locals.order.amount = req.body.amount;
+                res.locals.order.price = req.body.price;
+                res.locals.order.cust_name = req.body.cust_name;
+                res.locals.order.phone = req.body.phone;
+                res.locals.order.address = req.body.address;
 
-        res.locals.order
-            .save()
+                // Ellenőrizzük, hogy a rendelés mennyisége kevesebb-e, mint a virág rendelkezésre álló mennyisége
+                if (res.locals.order.amount > flower.flower_amount) {
+                    res.locals.errorMessage = 'Ordered quantity exceeds available quantity';
+                    return res.render('add_order', { order: req.body, errorMessage: res.locals.errorMessage });
+                }
+
+            })
             .then(() => {
-                return res.redirect('/menu/records');
+                return res.locals.order.save(); // Rendelés mentése
+            })
+            .then(()=>{
+                // Virágmennyiség frissítése
+                return FlowerModel.findOneAndUpdate(
+                    { flower_name: req.body.flower_name },
+                    { $inc: { flower_amount: -req.body.amount } }
+                );
+            })
+            .then(() => {
+                return res.redirect('/menu/records'); // Átirányítás
             })
             .catch((err) => {
-                return next(err);
+                return next(err); // Hibakezelés
             });
     };
 };

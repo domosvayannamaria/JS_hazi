@@ -33,8 +33,8 @@
                             <td><%= flower.flower_name %></td>
                             <td><%= flower.flower_amount %></td>
                             <td><%= flower.flower_price %></td>
-                            <td><button class="edit-button" onclick="location.href='/menu/inventory/edit/<%= flower.flowerID %>'">Edit</button></td>
-                            <td><button class="delete-button" onclick="location.href='/menu/inventory/del/<%= flower.flowerID %>'">Delete</button></td>
+                            <td><button class="edit-button" onclick="location.href='/menu/inventory/edit/<%= flower._id %>'">Edit</button></td>
+                            <td><button class="delete-button" onclick="location.href='/menu/inventory/del/<%= flower._id %>'">Delete</button></td>
                         </tr>
                     <% }); %>
                     </tbody>

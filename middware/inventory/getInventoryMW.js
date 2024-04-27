@@ -1,3 +1,7 @@
+/**
+ * Gets the whole list of flowers in the inventory
+ */
+
 const requireOption = require('../requireOption');
 
 module.exports = function (objectRepository) {

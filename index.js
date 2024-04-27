@@ -11,7 +11,7 @@ app.use(express.static('public'));
 
 //Session
 app.use(session({
-    secret: 'jfcjkbrvfdbg'
+    secret: 'sseeccrreett'
 }))
 
 //Routing

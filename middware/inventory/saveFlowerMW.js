@@ -1,5 +1,5 @@
 /**
- * saves the added information about a flower, adds to the list of inventory
+ * Saves the added information about a flower, adds to the list of inventory
  */
 
 const requireOption = require('../requireOption');
