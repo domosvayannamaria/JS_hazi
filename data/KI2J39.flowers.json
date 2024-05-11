@@ -1,0 +1,92 @@
+[
+  {
+    "_id": {
+      "$oid": "662c3bc2c5ae421d5e67aaeb"
+    },
+    "flowerID": 1,
+    "flower_name": "Daisy",
+    "flower_amount": 48,
+    "flower_price": 2,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "672c3bc2c5ae421d5e67aaec"
+    },
+    "flowerID": 2,
+    "flower_name": "Rose",
+    "flower_amount": 60,
+    "flower_price": 3,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "682c3bc2c5ae421d5e67aaed"
+    },
+    "flowerID": 3,
+    "flower_name": "Tulip",
+    "flower_amount": 35,
+    "flower_price": 2.5,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "692c3bc2c5ae421d5e67aaee"
+    },
+    "flowerID": 4,
+    "flower_name": "Lily",
+    "flower_amount": 42,
+    "flower_price": 4,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6a2c3bc2c5ae421d5e67aaef"
+    },
+    "flowerID": 5,
+    "flower_name": "Sunflower",
+    "flower_amount": 55,
+    "flower_price": 3.5,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6b2c3bc2c5ae421d5e67aaf0"
+    },
+    "flowerID": 6,
+    "flower_name": "Carnation",
+    "flower_amount": 38,
+    "flower_price": 2.8,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6c2c3bc2c5ae421d5e67aaf1"
+    },
+    "flowerID": 7,
+    "flower_name": "Orchid",
+    "flower_amount": 50,
+    "flower_price": 5,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6d2c3bc2c5ae421d5e67aaf2"
+    },
+    "flowerID": 8,
+    "flower_name": "Hydrangea",
+    "flower_amount": 30,
+    "flower_price": 3.2,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6e2c3bc2c5ae421d5e67aaf3"
+    },
+    "flowerID": 9,
+    "flower_name": "Peony",
+    "flower_amount": 25,
+    "flower_price": 4.5,
+    "__v": 0
+  }
+]

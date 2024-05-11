@@ -1,5 +1,6 @@
 const authMW = require('../middware/login/authMW');
 const passCheckMW = require('../middware/login/passCheckMW');
+const registerMW = require('../middware/login/registerMW')
 const logoutMW = require('../middware/login/logoutMW');
 const renderMW = require('../middware/renderMW');
 const getRecordsMW = require('../middware/records/getRecordsMW');
@@ -14,12 +15,13 @@ const delFlowerMW = require('../middware/inventory/delFlowerMW');
 //modellek betoltese
 const OrderModel = require('../models/order')
 const FlowerModel = require('../models/flower')
-
+const UserModel = require('../models/user');
 
 module.exports = function(app) {
     const objectRepository = {
         OrderModel: OrderModel,
-        FlowerModel: FlowerModel
+        FlowerModel: FlowerModel,
+        UserModel: UserModel
     };
 
     // Menu routes
@@ -89,6 +91,11 @@ module.exports = function(app) {
     //Logout route
     app.use('/logout',
         logoutMW(objectRepository)
+    );
+
+    //registration route
+    app.use('/register',
+        registerMW(objectRepository),
     );
 
     // Login route

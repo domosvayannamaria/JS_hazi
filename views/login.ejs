@@ -1,6 +1,5 @@
 <%- include('header', {style: '/assets/styles/login.css'}) -%>
 
-
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-12 col-md-8">
@@ -26,9 +25,13 @@
                     <div class="mb-3 input-group">
                         <span class="input-group-text">
                             <img src="/assets/styles/files/key.png" alt="" width="30">
-                            <text>Rosy111223_</text>
                         </span>
                         <input type="password" name="password" class="form-control w-100" placeholder="Jelszó" required>
+                        <div class="error-message">
+                            <% if (typeof errorMessage !== 'undefined') { %>
+                                <%= errorMessage %>
+                            <% } %>
+                        </div>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Login</button>
                 </form>
@@ -37,21 +40,42 @@
     </div>
 </div>
 
+<input type="hidden" id="unknownUser" value="<%= typeof unknownUser !== 'undefined' && unknownUser %>">
 
-
-<div class="container-fluid">
-    <div class="row justify-content-center">
-        <div class="col-12 col-md-5">
-            <form action="/menu">
-                <button type="submit" class="btn btn-primary">Menu</button>
-            </form>
-        </div>
-        <div class="col-12 col-md-6">
-            <form action="/logout">
-                <button type="submit" class="btn btn-danger"><img src="/assets/styles/files/logout.png" alt="" height="10">   Logout</button>
-            </form>
-        </div>
+<div id="registrationModal" class="modal" style="<%= typeof unknownUser !== 'undefined' && unknownUser ? 'display: block;' : 'display: none;' %>">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Sign up</h2>
+        <form id="registrationForm" action="/register" method="post">
+            <div class="mb-3 input-group">
+                <span class="input-group-text">
+                    <img src="/assets/styles/files/username.png" alt="" width="30">
+                </span>
+                <input type="text" name="username" class="form-control w-100" placeholder="Felhasználónév" required>
+            </div>
+            <div class="mb-3 input-group">
+                <span class="input-group-text">
+                    <img src="/assets/styles/files/key.png" alt="" width="30">
+                </span>
+                <input type="password" name="password" class="form-control w-100" placeholder="Jelszó" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Register</button>
+        </form>
     </div>
 </div>
 
 <%- include('footer') -%>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const closeBtn = document.querySelector('.modal-content .close');
+
+        // Add click event listener to the close button
+        closeBtn.addEventListener('click', function() {
+            // Get the modal element
+            const modal = document.getElementById('registrationModal');
+            // Close the modal by hiding it
+            modal.style.display = 'none';
+        });
+    });
+</script>

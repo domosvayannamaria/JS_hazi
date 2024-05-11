@@ -29,6 +29,12 @@ module.exports = function (objectRepository) {
                     err.status = 400;
                     throw err;
                 }
+
+                if(flower.flower_amount <= 0){
+                    res.locals.errorMessage = 'Selected flower is not available';
+                    return res.render('add_order', { order: req.body, errorMessage: res.locals.errorMessage });
+                }
+
                 // Virág szerepel az inventory-ban, így mentjük a rendelést
                 if (typeof res.locals.order === 'undefined') {
                     res.locals.order = new OrderModel();
@@ -45,19 +51,29 @@ module.exports = function (objectRepository) {
                 // Ellenőrizzük, hogy a rendelés mennyisége kevesebb-e, mint a virág rendelkezésre álló mennyisége
                 if (res.locals.order.amount > flower.flower_amount) {
                     res.locals.errorMessage = 'Ordered quantity exceeds available quantity';
+
                     return res.render('add_order', { order: req.body, errorMessage: res.locals.errorMessage });
+                } else {
+                    return res.locals.order.save(); // Rendelés mentése
                 }
 
             })
             .then(() => {
-                return res.locals.order.save(); // Rendelés mentése
+
             })
             .then(()=>{
-                // Virágmennyiség frissítése
-                return FlowerModel.findOneAndUpdate(
-                    { flower_name: req.body.flower_name },
-                    { $inc: { flower_amount: -req.body.amount } }
-                );
+                if(res.locals.order.amount<=req.body.flower_amount) {
+                    return FlowerModel.findOneAndUpdate(
+                        {flower_name: req.body.flower_name},
+                        {$inc: {flower_amount: -req.body.amount}}
+                    );
+                }
+            })
+            .then(() => {
+                // Check if the updated flower amount is 0, if so, delete the flower from the database
+                if (req.body.flower_amount === 0) {
+                    return FlowerModel.findOneAndDelete({ flower_name: req.body.flower_name });
+                }
             })
             .then(() => {
                 return res.redirect('/menu/records'); // Átirányítás

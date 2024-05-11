@@ -98,3 +98,11 @@ h3 {
     bottom: 10px;
     right: 20px;
 }
+
+.unavailable-flower {
+    color: #999; /* or any other shade of grey */
+}
+
+.brown-redish-text {
+    color: #8B0000; /* Dark red color */
+}
