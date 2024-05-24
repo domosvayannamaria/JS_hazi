@@ -1,92 +1,210 @@
-[
-  {
-    "_id": {
-      "$oid": "662c3c0ec5ae421d5e67aaf2"
-    },
-    "customerID": 1,
-    "flower_name": "Daisy",
-    "amount": 2,
-    "price": 10,
-    "cust_name": "Done.",
-    "phone": {
-      "$numberLong": "36204561235"
-    },
-    "address": "Budapest, Tűzoltó u. 66, 1094",
-    "__v": 0
+[{
+  "_id": {
+    "$oid": "662c3c0ec5ae421d5e67aaf2"
   },
-  {
-    "_id": {
-      "$oid": "672c3c0ec5ae421d5e67aaf3"
-    },
-    "customerID": 2,
-    "flower_name": "Rose",
-    "amount": 3,
-    "price": 15,
-    "cust_name": "John Smith",
-    "phone": {
-      "$numberLong": "36304561235"
-    },
-    "address": "Budapest, Kossuth Lajos tér 1-3, 1055",
-    "__v": 0
+  "customerID": 1,
+  "flower_name": "Daisy",
+  "amount": 2,
+  "price": 10,
+  "cust_name": "Done.",
+  "phone": {
+    "$numberLong": "36204561235"
   },
-  {
-    "_id": {
-      "$oid": "682c3c0ec5ae421d5e67aaf4"
-    },
-    "customerID": 3,
-    "flower_name": "Tulip",
-    "amount": 1,
-    "price": 5,
-    "cust_name": "Alice Brown",
-    "phone": {
-      "$numberLong": "36304561236"
-    },
-    "address": "Budapest, Deák Ferenc tér 4, 1052",
-    "__v": 0
+  "address": "Budapest, Tűzoltó u. 66, 1094",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "672c3c0ec5ae421d5e67aaf3"
   },
-  {
-    "_id": {
-      "$oid": "692c3c0ec5ae421d5e67aaf5"
-    },
-    "customerID": 4,
-    "flower_name": "Lily",
-    "amount": 4,
-    "price": 20,
-    "cust_name": "Emily Davis",
-    "phone": {
-      "$numberLong": "36304561237"
-    },
-    "address": "Budapest, Váci u. 1-3, 1052",
-    "__v": 0
+  "customerID": 2,
+  "flower_name": "Rose",
+  "amount": 3,
+  "price": 15,
+  "cust_name": "John Smith",
+  "phone": {
+    "$numberLong": "36304561235"
   },
-  {
-    "_id": {
-      "$oid": "6a2c3c0ec5ae421d5e67aaf6"
-    },
-    "customerID": 5,
-    "flower_name": "Sunflower",
-    "amount": 2,
-    "price": 12,
-    "cust_name": "Michael Johnson",
-    "phone": {
-      "$numberLong": "36304561238"
-    },
-    "address": "Budapest, Andrássy út 1-3, 1061",
-    "__v": 0
+  "address": "Budapest, Kossuth Lajos tér 1-3, 1055",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "682c3c0ec5ae421d5e67aaf4"
   },
-  {
-    "_id": {
-      "$oid": "6b2c3c0ec5ae421d5e67aaf7"
-    },
-    "customerID": 6,
-    "flower_name": "Carnation",
-    "amount": 3,
-    "price": 18,
-    "cust_name": "Jessica Wilson",
-    "phone": {
-      "$numberLong": "36304561239"
-    },
-    "address": "Budapest, Rákóczi út 1-3, 1081",
-    "__v": 0
-  }
-]
+  "customerID": 3,
+  "flower_name": "Tulip",
+  "amount": 1,
+  "price": 5,
+  "cust_name": "Alice Brown",
+  "phone": {
+    "$numberLong": "36304561236"
+  },
+  "address": "Budapest, Deák Ferenc tér 4, 1052",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "692c3c0ec5ae421d5e67aaf5"
+  },
+  "customerID": 4,
+  "flower_name": "Lily",
+  "amount": 4,
+  "price": 20,
+  "cust_name": "Emily Davis",
+  "phone": {
+    "$numberLong": "36304561237"
+  },
+  "address": "Budapest, Váci u. 1-3, 1052",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a2c3c0ec5ae421d5e67aaf6"
+  },
+  "customerID": 5,
+  "flower_name": "Sunflower",
+  "amount": 2,
+  "price": 12,
+  "cust_name": "Sophia Lee",
+  "phone": {
+    "$numberLong": "36304561238"
+  },
+  "address": "Budapest, Bajcsy-Zsilinszky út 1-3, 1051",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6b2c3c0ec5ae421d5e67aaf7"
+  },
+  "customerID": 6,
+  "flower_name": "Orchid",
+  "amount": 3,
+  "price": 18,
+  "cust_name": "Michael Johnson",
+  "phone": {
+    "$numberLong": "36304561239"
+  },
+  "address": "Budapest, József Attila u. 1-3, 1051",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6c2c3c0ec5ae421d5e67aaf8"
+  },
+  "customerID": 7,
+  "flower_name": "Carnation",
+  "amount": 5,
+  "price": 25,
+  "cust_name": "Emma Wilson",
+  "phone": {
+    "$numberLong": "36304561240"
+  },
+  "address": "Budapest, Andrássy út 1-3, 1061",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6d2c3c0ec5ae421d5e67aaf9"
+  },
+  "customerID": 8,
+  "flower_name": "Hyacinth",
+  "amount": 2,
+  "price": 14,
+  "cust_name": "Olivia Martinez",
+  "phone": {
+    "$numberLong": "36304561241"
+  },
+  "address": "Budapest, Rákóczi út 1-3, 1072",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6e2c3c0ec5ae421d5e67aafa"
+  },
+  "customerID": 9,
+  "flower_name": "Peony",
+  "amount": 3,
+  "price": 20,
+  "cust_name": "William Garcia",
+  "phone": {
+    "$numberLong": "36304561242"
+  },
+  "address": "Budapest, Szabadság tér 1-3, 1054",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6f2c3c0ec5ae421d5e67aafb"
+  },
+  "customerID": 10,
+  "flower_name": "Chrysanthemum",
+  "amount": 2,
+  "price": 16,
+  "cust_name": "James Brown",
+  "phone": {
+    "$numberLong": "36304561243"
+  },
+  "address": "Budapest, Margit híd budai hídfő, 1013",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "702c3c0ec5ae421d5e67aafc"
+  },
+  "customerID": 11,
+  "flower_name": "Azalea",
+  "amount": 4,
+  "price": 22,
+  "cust_name": "Ethan Taylor",
+  "phone": {
+    "$numberLong": "36304561244"
+  },
+  "address": "Budapest, Corvin sétány 1-3, 1082",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "712c3c0ec5ae421d5e67aafd"
+  },
+  "customerID": 12,
+  "flower_name": "Dahlia",
+  "amount": 3,
+  "price": 18,
+  "cust_name": "Isabella Anderson",
+  "phone": {
+    "$numberLong": "36304561245"
+  },
+  "address": "Budapest, Kálvin tér 1-3, 1091",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "722c3c0ec5ae421d5e67aafe"
+  },
+  "customerID": 13,
+  "flower_name": "Iris",
+  "amount": 5,
+  "price": 28,
+  "cust_name": "Ava Thomas",
+  "phone": {
+    "$numberLong": "36304561246"
+  },
+  "address": "Budapest, Dózsa György út 1-3, 1146",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "732c3c0ec5ae421d5e67aaff"
+  },
+  "customerID": 14,
+  "flower_name": "Crocus",
+  "amount": 2,
+  "price": 15,
+  "cust_name": "Mia Hernandez",
+  "phone": {
+    "$numberLong": "36304561247"
+  },
+  "address": "Budapest, Budaörsi út 1-3, 1111",
+  "__v": 0
+}]

@@ -9,7 +9,7 @@ body {
     background-image: url('./files/login.jpg');
     background-size: auto;
     background-repeat: no-repeat;
-    background-position: center -1800px;
+    background-position: center;
 
 }
 
@@ -84,7 +84,7 @@ h1 {
 
 input[type="text"],
 input[type="password"] {
-    background-color: rgb(174, 147, 117);
+    background-color: rgb(227, 221, 217);
     width: 100%;
     padding: 10px;
 
@@ -109,6 +109,11 @@ img {
 .btn {
     margin-top: 10px;
     cursor: pointer;
+    background-color: #a1826e;
+}
+
+.btn:hover{
+    background-color: #d2b89d;
 }
 
 .bg-brown {

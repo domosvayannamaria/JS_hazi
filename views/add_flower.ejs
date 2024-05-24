@@ -21,8 +21,9 @@
         <label for="flower_price" class="form-label">Price:</label>
         <input type="number" id="flower_price" name="flower_price" class="form-input" value="<%= (typeof flower !== 'undefined') ? flower.flower_price : '' %>"  required>
 
-        <input type="submit" value="<%= (typeof flower === 'undefined') ? 'Add Flower' : 'Edit flower' %>">
+        <input type="submit" value="<%= (typeof flower === 'undefined') ? 'Add Flower' : 'Edit flower' %>" class="form-submit">
     </form>
+    <a href="/menu/inventory" class="back-button">Back</a>
 </div>
 <h3><form action="/menu/inventory"><button><img src="/assets/styles/files/vissza.png" alt="" width="30"></button></form></h3>
 
